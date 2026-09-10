@@ -2,21 +2,40 @@ def GuardarPersonas():
 
     nombre= input("Como te llamas? ")
     edad= int(input("Que edad tienes? "))
-    if edad < 18:
-        print("Debe ser mayor de edad para poder registrarte")
-        edadmin =int(input("Por favor coloque una edad permitida: "))
+    while  edad <18 or edad > 120:
+        if edad > 120 :
+            print (" Debes estar vivo para registrarte")
+            edad=int(input("Por favor coloque una edad permitida: ") )
+        else:
+            print("Debe ser mayor de edad para poder registrarte")
+            edad=int(input("Por favor coloque una edad permitida: ") )
+        
     ciudad= input("De donde eres? ")
     genero= input("Cual es tu genero? ")
     gbusca= input("Que genero busca? ")
     edadmin =int (input("Cual es la edad minima que buscas para tu futura cita? "))
-    if edadmin < 18:
-        print("El furuto prospecto debe ser mayor de edad por politicas del gobierno")
-        edadmin =int(input("Por favor coloque una edad permitida: "))
-    
+    while edadmin < 18 or edadmin > 120:
+        if edadmin < 18:
+            print("El furuto prospecto debe ser mayor de edad por politicas del gobierno")
+            edadmin =int(input("Por favor coloque una edad permitida: "))
+        else:
+            print ("tu futura pareja minimo debe estar viva")
+            edadmin=int(input("Por favor coloque una edad permitida: ") )
+            
     edadmax =int(input("Cual es la edad maxima que buscas para tu futura cita? "))
-    if edadmax > 120:
-        print("Estas buscando el ataud o que?")
-        edadmax =int(input("Por favor coloque una edad permitida: "))
+    while edadmax < 18 or edadmax > 120:
+        if edadmax < 18:
+            print("El furuto prospecto debe ser mayor de edad por politicas del gobierno")
+            edadmax =int(input("Por favor coloque una edad permitida: "))
+        elif edadmax < edadmin:
+            print("La edad maxima de tu pareja debe ser mayor a la edad minima")
+            edadmax =int(input("Por favor coloque una edad mayor a la edad minima de tu pareja: "))
+            
+        elif edadmax > 120:
+            print ("tu futura pareja debe estar viva")
+            edadmax=int(input("Por favor coloque una edad permitida: ") )
+    
+        
 
     distancia=int(input("Cuantos kilometros aceptas que este de distancia tu futura pareja? "))
 
@@ -39,7 +58,6 @@ def MostrarPersonas(usuario):
 
     for persona in usuario:
         print(persona)
-
 
 
 
@@ -73,6 +91,7 @@ def main ():
         case "0":
          print("Gracias por utilizar Tinder CUN.")
          break
+
 
 
 main()
